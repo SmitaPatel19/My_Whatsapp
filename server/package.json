@@ -1,0 +1,17 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  },
+  "scripts": {
+    "smita": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
