@@ -5,7 +5,6 @@ import 'package:my_whatsapp/Custom%20UI/Privacy_terms.dart';
 import 'package:my_whatsapp/Extension/customThemeExtension.dart';
 import 'package:my_whatsapp/Pages/LoginPage.dart';
 
-
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 

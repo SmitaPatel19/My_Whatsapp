@@ -1,6 +1,8 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:my_whatsapp/Custom%20UI/Agree_ContinueButton.dart';
 import 'package:my_whatsapp/Custom%20UI/LoginTextFormField.dart';
+import 'package:my_whatsapp/Custom%20UI/ShowAlertDialog.dart';
 import 'package:my_whatsapp/Extension/customThemeExtension.dart';
 import 'package:my_whatsapp/Model/colors.dart';
 import 'package:my_whatsapp/Pages/VerifyPhoneNumberPage.dart';
@@ -13,10 +15,54 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   late TextEditingController countryNameController;
   late TextEditingController countryCodeController;
   late TextEditingController phoneNumbercontroller;
+
+  sendCodeToPhone() {
+    final phone = phoneNumbercontroller.text;
+    final name = countryNameController.text;
+
+    if (phone.length < 10) {
+      return showAlertDialog(
+          context: context,
+          message:
+              "The number you entered is too short for the country: $name.\n\nInclude your area code if you haven't."
+      );
+    }
+  }
+
+  showCountryCodePicker() {
+    showCountryPicker(
+        context: context,
+        showPhoneCode: true,
+        favorite: ['+91'],
+        countryListTheme: CountryListThemeData(
+          bottomSheetHeight: 600,
+          backgroundColor: Theme.of(context).backgroundColor,
+          textStyle: TextStyle(color: context.theme.greyColor),
+          inputDecoration: InputDecoration(
+            labelStyle: TextStyle(color: context.theme.greyColor),
+            prefixIcon: const Icon(
+              Icons.language,
+              color: Coloors.greenDark,
+            ),
+            hintText: 'Search country code or name',
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+              color: context.theme.greyColor!.withOpacity(0.2),
+            )),
+            focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+              color: Coloors.greenDark,
+            )),
+          ),
+        ),
+        onSelect: (country) {
+          countryNameController.text = country.name;
+          countryCodeController.text = country.countryCode;
+        });
+  }
 
   @override
   void initState() {
@@ -33,22 +79,24 @@ class _LoginPageState extends State<LoginPage> {
     phoneNumbercontroller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(automaticallyImplyLeading: false,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
-        title: Text("Enter your phone number",style: TextStyle(
-          color: context.theme.loginAppbarTextColor,
-        ),),
+        title: Text(
+          "Enter your phone number",
+          style: TextStyle(
+            color: context.theme.loginAppbarTextColor,
+          ),
+        ),
         centerTitle: true,
         actions: [
           PopupMenuButton<String>(
-            onSelected: (value){
-
-            },
+            onSelected: (value) {},
             splashRadius: 22,
             iconSize: 22,
             padding: EdgeInsets.zero,
@@ -57,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
               color: context.theme.greyColor,
             ),
             constraints: BoxConstraints(minWidth: 40),
-            itemBuilder: (BuildContext context){
+            itemBuilder: (BuildContext context) {
               return [
                 PopupMenuItem(child: Text("Link as companion device")),
                 PopupMenuItem(child: Text("Help")),
@@ -66,13 +114,12 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ],
       ),
-
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: RichText(
-              textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
                 text: TextSpan(
                   text: 'WhatsApp will need to verify your account. ',
                   style: TextStyle(
@@ -81,29 +128,28 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   children: [
                     TextSpan(
-                      text: "What's my number",
-                      style: TextStyle(
-                        color: context.theme.blueColor,
-                      )
-                    ),
+                        text: "What's my number",
+                        style: TextStyle(
+                          color: context.theme.blueColor,
+                        )),
                   ],
-                )
-            ),
+                )),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50.0),
             child: LoginTextFormField(
-              onTap: (){},
+              onTap: showCountryCodePicker,
               controller: countryNameController,
               readOnly: true,
-              suffixIcon: Icon(Icons.arrow_drop_down_outlined,color: Coloors.greenDark,),
-
+              suffixIcon: Icon(
+                Icons.arrow_drop_down_outlined,
+                color: Coloors.greenDark,
+              ),
             ),
           ),
-
-          const SizedBox(height: 10,),
-
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Row(
@@ -111,15 +157,15 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: 70,
                   child: LoginTextFormField(
-                    onTap: (){},
+                    onTap: showCountryCodePicker,
                     controller: countryCodeController,
                     prefixText: '+',
                     readOnly: true,
                   ),
                 ),
-
-                const SizedBox(width: 10,),
-
+                const SizedBox(
+                  width: 10,
+                ),
                 Expanded(
                   child: LoginTextFormField(
                     controller: phoneNumbercontroller,
@@ -131,9 +177,11 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          const SizedBox(height: 20,),
-
-          Text("Carrier charges may apply",
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "International carrier charges may apply",
             style: TextStyle(
               color: context.theme.greyColor,
             ),
@@ -142,12 +190,10 @@ class _LoginPageState extends State<LoginPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AgreeContinueButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (builder) => VerifyPhoneNumberPage()));
-        },
+        onPressed: sendCodeToPhone,
         text: "Next",
-        buttonWidth: 0, mright: 5,
+        buttonWidth: 0,
+        mright: 5,
       ),
     );
   }

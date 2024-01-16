@@ -45,6 +45,7 @@ dependencies:
   video_player: ^2.7.2
   socket_io_client: ^2.0.3+1
   flutter_native_splash: ^2.3.3
+  country_picker: ^2.0.23
 
 flutter_native_splash:
   color: "#FFFFFF"

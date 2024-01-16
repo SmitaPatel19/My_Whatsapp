@@ -3,20 +3,19 @@ import 'package:flutter/services.dart';
 import 'package:my_whatsapp/Extension/customThemeExtension.dart';
 import 'package:my_whatsapp/Model/colors.dart';
 
-ThemeData lightTheme(){
-  final ThemeData base=ThemeData.light();
+ThemeData lightTheme() {
+  final ThemeData base = ThemeData.light();
   return base.copyWith(
-      backgroundColor: Coloors.backgroundLight,
-      scaffoldBackgroundColor: Coloors.backgroundLight,
+    backgroundColor: Coloors.backgroundLight,
+    scaffoldBackgroundColor: Coloors.backgroundLight,
     extensions: [
       CustomThemeExtension.lightMode,
     ],
-    appBarTheme: AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(
-
+    appBarTheme: AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
     )),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: Coloors.greenLight,
@@ -24,16 +23,16 @@ ThemeData lightTheme(){
         splashFactory: NoSplash.splashFactory,
         elevation: 0,
         shadowColor: Colors.transparent,
-        shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
       ),
     ),
-
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: Coloors.backgroundLight,
       modalBackgroundColor: Coloors.backgroundLight,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
       ),
     ),
   );

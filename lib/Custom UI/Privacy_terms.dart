@@ -7,9 +7,9 @@ class PrivacyAndTerms extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: Column(
+    return Expanded(
+        child: Column(
       children: [
-
         RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
@@ -30,9 +30,7 @@ class PrivacyAndTerms extends StatelessWidget {
                       style: TextStyle(
                         color: context.theme.blueColor,
                       )),
-                ]
-            )
-        ),
+                ])),
       ],
     ));
   }

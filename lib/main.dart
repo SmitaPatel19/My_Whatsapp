@@ -5,8 +5,7 @@ import 'package:my_whatsapp/Pages/WelcomePage.dart';
 import 'package:my_whatsapp/theme/dark_theme.dart';
 import 'package:my_whatsapp/theme/light_theme.dart';
 
-Future<void> main() async{
-
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   cameras = await availableCameras();
@@ -15,7 +14,6 @@ Future<void> main() async{
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
