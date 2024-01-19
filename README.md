@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+A Flutter-based chatting app, similar to a WhatsApp clone, developed using Flutter and integrated with Firebase.
+• This app have a lot of features such as one to one chat, audio and video recording, chat group and so on.
+• Learned how to use Flutter in conjunction with backend databases and APIs
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
