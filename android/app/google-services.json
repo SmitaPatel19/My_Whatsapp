@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "959678277419",
+    "project_id": "my-whatsapp-df80f",
+    "storage_bucket": "my-whatsapp-df80f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959678277419:android:5385843b232ef49107476e",
+        "android_client_info": {
+          "package_name": "com.example.my_whatsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7R7_JMYoYnHxf16KJNxEv6rU4TnXS2ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
