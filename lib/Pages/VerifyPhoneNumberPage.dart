@@ -29,7 +29,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
               Icons.more_vert,
               color: context.theme.greyColor,
             ),
-            constraints: const BoxConstraints(minWidth: 40),
+            constraints: const BoxConstraints(minWidth: 200,maxHeight: 55),
             itemBuilder: (BuildContext context) {
               return [
                 const PopupMenuItem(child: Text("Help")),
@@ -39,17 +39,18 @@ class VerifyPhoneNumberPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 50, right: 50),
+        padding: const EdgeInsets.only(left: 50, right: 50),
+        height: MediaQuery.of(context).size.height-255,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Center(
               child: CircleAvatar(
                 radius: 32,
                 backgroundColor: Colors.tealAccent.shade100,
-                child: Icon(
+                child: const Icon(
                   Icons.phone_missed_rounded,
                   color: Colors.teal,
                   size: 30,
@@ -68,35 +69,35 @@ class VerifyPhoneNumberPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             )),
+
+            const SizedBox(height: 25,),
+
             Row(
               children: [
                 Icon(
                   Icons.call,
                   color: context.theme.greyColor,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 15),
-                        child: RichText(
-                            text: TextSpan(
-                          text: "Allow WhatsApp to manage this call",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            color: context.theme.blackwhiteColor,
-                          ),
-                        )),
-                      ),
+                      RichText(
+                          text: TextSpan(
+                        text: "Allow WhatsApp to manage this call",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: context.theme.blackwhiteColor,
+                        ),
+                      )),
                       Text(
                         "so we can call your phone number and end the call automatically.",
                         style: TextStyle(
                           color: context.theme.greyColor,
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -120,13 +121,13 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 48),
+                        padding: const EdgeInsets.only(right: 15),
                         child: RichText(
                             text: TextSpan(
-                          text: 'Allow WhatsApp to a one-time',
+                          text: 'Allow WhatsApp to do a one-time',
                           style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                             color: context.theme.blackwhiteColor,
                           ),
                         )),
@@ -135,8 +136,8 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                           text: TextSpan(
                               text: 'check ',
                               style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
                                 color: context.theme.blackwhiteColor,
                               ),
                               children: [
@@ -145,8 +146,9 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                                   'and access your call log so we can confirm that you received the call.',
                               style: TextStyle(
                                 color: context.theme.greyColor,
-                                fontSize: 12,
+                                fontSize: 14,
                                 fontWeight: FontWeight.normal,
+
                               ),
                             ),
                           ])),
@@ -185,7 +187,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
             AgreeContinueButton(
               onPressed: () {
                 // Navigator.push(context,
-                //     MaterialPageRoute(builder: (builder) => ));
+                //     MaterialPageRoute(builder: (builder) => VerifyCodeSMSPage()));
               },
               text: 'Continue',
               buttonWidth: 90,
@@ -206,7 +208,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 IconButton(
@@ -217,17 +219,17 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                                   splashRadius: 22,
                                   iconSize: 22,
                                   padding: EdgeInsets.zero,
-                                  constraints: BoxConstraints(minWidth: 40),
-                                  icon: Icon(
+                                  constraints: const BoxConstraints(minWidth: 40),
+                                  icon: const Icon(
                                     Icons.close_outlined,
                                     color: Coloors.greyDark,
                                   ),
                                 ),
                               ],
                             ),
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(left: 30, right: 30),
+                                  EdgeInsets.only(left: 30, right: 30),
                               child: Text(
                                 'Verify your phone number another way',
                                 style: TextStyle(
@@ -237,14 +239,14 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
-                                "You can receive your verifivation code by text message (SMS) or phone call.",
+                                "You can receive your verification code by text message (SMS) or phone call.",
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: context.theme.greyColor,
@@ -252,7 +254,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             AgreeContinueButton(
@@ -269,9 +271,7 @@ class VerifyPhoneNumberPage extends StatelessWidget {
               buttonWidth: 90,
               mright: 46,
             ),
-            const SizedBox(
-              height: 170,
-            )
+
           ],
         ),
       ),

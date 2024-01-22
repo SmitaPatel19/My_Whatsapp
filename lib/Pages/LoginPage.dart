@@ -23,12 +23,26 @@ class _LoginPageState extends State<LoginPage> {
     final phone = phoneNumbercontroller.text;
     final name = countryNameController.text;
 
+    if(phone.isEmpty){
+      return showAlertDialog(
+          context: context,
+          message: "Please enter your phone number.");
+    }
     if (phone.length < 10) {
       return showAlertDialog(
           context: context,
           message:
               "The number you entered is too short for the country: $name.\n\nInclude your area code if you haven't."
       );
+    }
+    else if (phone.length>10){
+      return showAlertDialog(
+          context: context,
+          message: "The phone number you entered is too long: $name"
+      );
+    }
+    else if(phone.length==10){
+      return Navigator.push(context, MaterialPageRoute(builder: (builder)=> const VerifyPhoneNumberPage()));
     }
   }
 
@@ -39,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
         favorite: ['+91'],
         countryListTheme: CountryListThemeData(
           bottomSheetHeight: 600,
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: Theme.of(context).colorScheme.background,
           textStyle: TextStyle(color: context.theme.greyColor),
           inputDecoration: InputDecoration(
             labelStyle: TextStyle(color: context.theme.greyColor),
@@ -104,11 +118,11 @@ class _LoginPageState extends State<LoginPage> {
               Icons.more_vert,
               color: context.theme.greyColor,
             ),
-            constraints: BoxConstraints(minWidth: 40),
+            constraints: const BoxConstraints(minWidth: 40),
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem(child: Text("Link as companion device")),
-                PopupMenuItem(child: Text("Help")),
+                const PopupMenuItem(child: Text("Link as companion device")),
+                const PopupMenuItem(child: Text("Help")),
               ];
             },
           ),
@@ -141,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
               onTap: showCountryCodePicker,
               controller: countryNameController,
               readOnly: true,
-              suffixIcon: Icon(
+              suffixIcon: const Icon(
                 Icons.arrow_drop_down_outlined,
                 color: Coloors.greenDark,
               ),

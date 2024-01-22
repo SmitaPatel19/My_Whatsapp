@@ -46,6 +46,11 @@ dependencies:
   socket_io_client: ^2.0.3+1
   flutter_native_splash: ^2.3.3
   country_picker: ^2.0.23
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.6.0
+  flutter_riverpod: ^2.4.9-smita.9
 
 flutter_native_splash:
   color: "#FFFFFF"

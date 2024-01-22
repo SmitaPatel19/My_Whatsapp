@@ -25,7 +25,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
     langBtnBgColor : Color(0xFF182229),
     langBtnHighLightColor : Color(0xFF09141A),
     loginAppbarTextColor: Color(0xFFE9EDEF),
-    blackwhiteColor: Colors.white,
+    blackwhiteColor: Color(0xFFE9EDEF),
   );
 
   final Color? circleImageColor;
@@ -79,7 +79,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       langBtnBgColor: Color.lerp(langBtnBgColor, other.langBtnBgColor, t),
       langBtnHighLightColor: Color.lerp(langBtnHighLightColor, other.langBtnHighLightColor, t),
       loginAppbarTextColor: Color.lerp(loginAppbarTextColor, other.loginAppbarTextColor, t),
-        blackwhiteColor: Color.lerp(blackwhiteColor, other.blackwhiteColor, t),
+      blackwhiteColor: Color.lerp(blackwhiteColor, other.blackwhiteColor, t),
     );
   }
   

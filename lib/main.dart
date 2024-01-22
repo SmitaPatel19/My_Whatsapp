@@ -1,7 +1,10 @@
 import 'package:camera/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_whatsapp/Model/CameraLayout.dart';
 import 'package:my_whatsapp/Pages/WelcomePage.dart';
+import 'package:my_whatsapp/firebase_options.dart';
+import 'package:my_whatsapp/routes/routes.dart';
 import 'package:my_whatsapp/theme/dark_theme.dart';
 import 'package:my_whatsapp/theme/light_theme.dart';
 
@@ -10,28 +13,29 @@ Future<void> main() async {
 
   cameras = await availableCameras();
 
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   scaffoldBackgroundColor: Colors.white,
-      //   appBarTheme: AppBarTheme(
-      //     color: Color(0xFF075E54),
-      //   ),
-      //     bottomSheetTheme: BottomSheetThemeData(
-      //       backgroundColor: Colors.black.withOpacity(0),
-      //     ),
-      // ),
       theme: lightTheme(),
       darkTheme: darkTheme(),
       themeMode: ThemeMode.system,
       // home: LoginListPage(),
-      home: WelcomePage(),
+      home: const WelcomePage(),
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
