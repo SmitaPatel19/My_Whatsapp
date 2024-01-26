@@ -16,6 +16,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       langBtnHighLightColor : Color(0xFFE8E8Ed),
       loginAppbarTextColor: Coloors.greenLight,
       blackwhiteColor: Colors.black,
+      photoIconBgColor: Color(0xFFF0F2F3),
+      photoIconColor: Color(0xFF9DAAB3),
+
   );
 
   static const darkMode = CustomThemeExtension(
@@ -26,6 +29,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
     langBtnHighLightColor : Color(0xFF09141A),
     loginAppbarTextColor: Color(0xFFE9EDEF),
     blackwhiteColor: Color(0xFFE9EDEF),
+    photoIconBgColor: Color(0xFF283339),
+    photoIconColor: Color(0xFF61717B),
+
   );
 
   final Color? circleImageColor;
@@ -35,8 +41,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
   final Color? langBtnHighLightColor;
   final Color? loginAppbarTextColor;
   final Color? blackwhiteColor;
+  final Color? photoIconBgColor;
+  final Color? photoIconColor;
 
-  const CustomThemeExtension( {
+  const CustomThemeExtension({
     this.circleImageColor,
     this.greyColor,
     this.blueColor,
@@ -44,6 +52,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
     this.langBtnHighLightColor,
     this.loginAppbarTextColor,
     this.blackwhiteColor,
+    this.photoIconBgColor,
+    this.photoIconColor,
   });
 
   @override
@@ -56,6 +66,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
         Color? langBtnHighLightColor,
         Color? loginAppbarTextColor,
         Color? blackwhiteColor,
+        Color? photoIconBgColor,
+        Color? photoIconColor,
       }
   ) {
     return CustomThemeExtension(
@@ -65,7 +77,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       langBtnBgColor: langBtnBgColor ?? this.langBtnBgColor,
       langBtnHighLightColor: langBtnHighLightColor ?? this.langBtnHighLightColor,
       loginAppbarTextColor: loginAppbarTextColor?? this.loginAppbarTextColor,
-        blackwhiteColor: blackwhiteColor?? this.blackwhiteColor,
+      blackwhiteColor: blackwhiteColor?? this.blackwhiteColor,
+      photoIconBgColor: photoIconBgColor?? this.photoIconBgColor,
+      photoIconColor: photoIconColor?? this.photoIconColor,
     );
   }
 
@@ -80,6 +94,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       langBtnHighLightColor: Color.lerp(langBtnHighLightColor, other.langBtnHighLightColor, t),
       loginAppbarTextColor: Color.lerp(loginAppbarTextColor, other.loginAppbarTextColor, t),
       blackwhiteColor: Color.lerp(blackwhiteColor, other.blackwhiteColor, t),
+      photoIconBgColor: Color.lerp(photoIconBgColor, other.photoIconBgColor, t),
+      photoIconColor: Color.lerp(photoIconColor, other.photoIconColor, t),
     );
   }
   

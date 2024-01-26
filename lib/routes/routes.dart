@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_whatsapp/Pages/LoginPage.dart';
+import 'package:my_whatsapp/Pages/UserInfoPage.dart';
 import 'package:my_whatsapp/Pages/VerifyCodeSMSPage.dart';
+import 'package:my_whatsapp/Pages/VerifyPhoneNumberPage.dart';
 import 'package:my_whatsapp/Pages/WelcomePage.dart';
 
 class Routes {
@@ -16,12 +18,13 @@ class Routes {
       case verification:
         final Map args = settings.arguments as Map;
         return MaterialPageRoute(builder: (context)=>
-            VerifyCodeSMSPage(
-              verificationId: args['verificationId'],
-              phoneNumber: args['phoneNumber'],
-            ));
+          VerifyPhoneNumberPage(
+            smsCodeId: args['smsCodeId'],
+            phoneNumber: args['phoneNumber'],
+          )
+        );
       case userInfo:
-        return MaterialPageRoute(builder: (context)=> const WelcomePage());
+        return MaterialPageRoute(builder: (context)=> const UserInfoPage());
       case welcome:
         return MaterialPageRoute(builder: (context)=> const WelcomePage());
       default:

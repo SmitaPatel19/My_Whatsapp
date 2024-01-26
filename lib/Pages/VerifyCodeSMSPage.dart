@@ -1,27 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_whatsapp/Extension/customThemeExtension.dart';
+import 'package:my_whatsapp/Model/colors.dart';
+import 'package:my_whatsapp/auth/controller/auth_controller.dart';
 
-class VerifyCodeSMSPage extends StatefulWidget {
+class VerifyCodeSMSPage extends ConsumerWidget {
   const VerifyCodeSMSPage({super.key,
-    required this.verificationId,
+    required this.smsCodeId,
     required this.phoneNumber,
   });
 
-  final String verificationId;
+  final String smsCodeId;
   final String phoneNumber;
 
+  void verifySmsCode(
+    BuildContext context,
+    WidgetRef ref,
+    String smsCode,
+  ){
+    ref.read(authControllerProvider).verifySmsCode(
+        context: context,
+        smsCodeId: smsCodeId,
+        smsCode: smsCode,
+        mounted: true,
+    );
+  }
 
   @override
-  State<VerifyCodeSMSPage> createState() => _VerifyCodeSMSPageState();
-}
-
-class _VerifyCodeSMSPageState extends State<VerifyCodeSMSPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         title: Text("Verifying your number",style: TextStyle(
           color: context.theme.loginAppbarTextColor,
@@ -89,10 +99,53 @@ class _VerifyCodeSMSPageState extends State<VerifyCodeSMSPage> {
 
               const SizedBox(height: 20,),
 
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 80),
+                child: TextFormField(
+                  onTap: (){
 
+                  },
+                  onChanged: (value) {
+                    if(value.length==6){
+                      return verifySmsCode(context, ref, value);
+                    }
+                  },
+                  autofocus: true,
+                  cursorColor: Coloors.greenDark,
+                  keyboardType: TextInputType.number,
+                  style: const TextStyle(
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: '_ _ _  _ _ _',
+                    hintStyle: TextStyle(color: context.theme.greyColor),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Coloors.greenDark,width: 2,),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Coloors.greenDark,width: 2,),
+                    ),
+                  ),
+                ),
               ),
+
+            const SizedBox(height: 20,),
+
+            Text("Enter 6-digit code",style: TextStyle(
+              color: context.theme.greyColor,
+            ),),
+
+            const SizedBox(height: 20,),
+
+            Text("Didn't receive code?",style: TextStyle(
+              color: context.theme.loginAppbarTextColor,
+            ),),
+
+            Text("You may request a new code in 1.00",style: TextStyle(
+              color: context.theme.greyColor,
+            ),),
           ],
         ),
       ),
