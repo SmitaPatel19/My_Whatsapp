@@ -3,8 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_whatsapp/Model/CameraLayout.dart';
-import 'package:my_whatsapp/Pages/UserInfoPage.dart';
-import 'package:my_whatsapp/Pages/VerifyCodeSMSPage.dart';
 import 'package:my_whatsapp/Pages/WelcomePage.dart';
 import 'package:my_whatsapp/firebase_options.dart';
 import 'package:my_whatsapp/routes/routes.dart';

@@ -6,7 +6,6 @@ import 'package:my_whatsapp/Custom%20UI/LoginTextFormField.dart';
 import 'package:my_whatsapp/Custom%20UI/ShowAlertDialog.dart';
 import 'package:my_whatsapp/Extension/customThemeExtension.dart';
 import 'package:my_whatsapp/Model/colors.dart';
-import 'package:my_whatsapp/Pages/VerifyPhoneNumberPage.dart';
 import 'package:my_whatsapp/auth/controller/auth_controller.dart';
 
 class LoginPage extends ConsumerStatefulWidget {

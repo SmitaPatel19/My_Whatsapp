@@ -5,9 +5,12 @@ import 'package:my_whatsapp/Pages/ChatsPage.dart';
 
 class HomePage extends StatefulWidget {
 
-  const HomePage({super.key, required this.chats, required this.sourceChat});
-  final List<ChatModel> chats ;
-  final ChatModel sourceChat;
+  const HomePage({super.key,
+    // required this.chats,
+    // required this.sourceChat
+  });
+  // final List<ChatModel> chats ;
+  // final ChatModel sourceChat;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -79,7 +82,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: [
           Center(child: Text("Community")),
-          ChatsPage(chats: widget.chats,sourceChat: widget.sourceChat,),
+          //ChatsPage(chats: widget.chats,sourceChat: widget.sourceChat,),
           Center(child: Text("Status")),
           Center(child: Text("Calls")),
         ],

@@ -8,16 +8,42 @@ extension ExtendedTheme on BuildContext{
 }
 
 class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
+
+  final Color? circleImageColor;
+  final Color? greyColor;
+  final Color? blueColor;
+  final Color? langBtnBgColor;
+  final Color? langBtnHighLightColor;
+  final Color? loginAppbarTextColor;
+  final Color? blackwhiteColor;
+  final Color? photoIconBgColor;
+  final Color? photoIconColor;
+  final Color? authAppbarTextColor;
+
+  const CustomThemeExtension({
+    this.circleImageColor,
+    this.greyColor,
+    this.blueColor,
+    this.langBtnBgColor,
+    this.langBtnHighLightColor,
+    this.loginAppbarTextColor,
+    this.blackwhiteColor,
+    this.photoIconBgColor,
+    this.photoIconColor,
+    this.authAppbarTextColor,
+  });
+
   static const lightMode = CustomThemeExtension(
-      circleImageColor : Color(0xFF25D366),
-      greyColor : Coloors.greyLight,
-      blueColor : Coloors.blueLight,
-      langBtnBgColor : Color(0xFFF7F8FA),
-      langBtnHighLightColor : Color(0xFFE8E8Ed),
-      loginAppbarTextColor: Coloors.greenLight,
-      blackwhiteColor: Colors.black,
-      photoIconBgColor: Color(0xFFF0F2F3),
-      photoIconColor: Color(0xFF9DAAB3),
+    circleImageColor : Color(0xFF25D366),
+    greyColor : Coloors.greyLight,
+    blueColor : Coloors.blueLight,
+    langBtnBgColor : Color(0xFFF7F8FA),
+    langBtnHighLightColor : Color(0xFFE8E8Ed),
+    loginAppbarTextColor: Coloors.greenLight,
+    blackwhiteColor: Colors.black,
+    photoIconBgColor: Color(0xFFF0F2F3),
+    photoIconColor: Color(0xFF9DAAB3),
+    authAppbarTextColor: Coloors.greenLight,
 
   );
 
@@ -31,30 +57,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
     blackwhiteColor: Color(0xFFE9EDEF),
     photoIconBgColor: Color(0xFF283339),
     photoIconColor: Color(0xFF61717B),
+    authAppbarTextColor: Color(0xFFE9EDEF),
 
   );
-
-  final Color? circleImageColor;
-  final Color? greyColor;
-  final Color? blueColor;
-  final Color? langBtnBgColor;
-  final Color? langBtnHighLightColor;
-  final Color? loginAppbarTextColor;
-  final Color? blackwhiteColor;
-  final Color? photoIconBgColor;
-  final Color? photoIconColor;
-
-  const CustomThemeExtension({
-    this.circleImageColor,
-    this.greyColor,
-    this.blueColor,
-    this.langBtnBgColor,
-    this.langBtnHighLightColor,
-    this.loginAppbarTextColor,
-    this.blackwhiteColor,
-    this.photoIconBgColor,
-    this.photoIconColor,
-  });
 
   @override
   ThemeExtension<CustomThemeExtension> copyWith(
@@ -68,6 +73,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
         Color? blackwhiteColor,
         Color? photoIconBgColor,
         Color? photoIconColor,
+        Color? authAppbarTextColor,
       }
   ) {
     return CustomThemeExtension(
@@ -80,6 +86,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       blackwhiteColor: blackwhiteColor?? this.blackwhiteColor,
       photoIconBgColor: photoIconBgColor?? this.photoIconBgColor,
       photoIconColor: photoIconColor?? this.photoIconColor,
+      authAppbarTextColor: authAppbarTextColor ?? this.authAppbarTextColor,
     );
   }
 
@@ -96,6 +103,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>{
       blackwhiteColor: Color.lerp(blackwhiteColor, other.blackwhiteColor, t),
       photoIconBgColor: Color.lerp(photoIconBgColor, other.photoIconBgColor, t),
       photoIconColor: Color.lerp(photoIconColor, other.photoIconColor, t),
+      authAppbarTextColor: Color.lerp(authAppbarTextColor, other.authAppbarTextColor, t),
     );
   }
   
