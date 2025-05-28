@@ -1,0 +1,2 @@
+C:/Users/Shashi Bhal Kunwar/StudioProjects/My_Whatsapp/android/app/.cxx/Debug/701c3y5l/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Shashi Bhal Kunwar/StudioProjects/My_Whatsapp/android/app/.cxx/Debug/701c3y5l/armeabi-v7a/CMakeFiles/rebuild_cache.dir
